@@ -2,6 +2,8 @@
 
 The Empower Web Client used to integrate with Zafeplace
 
+This is a prototype version. Not a finished production version.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
 ## Development server
