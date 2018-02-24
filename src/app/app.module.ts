@@ -7,6 +7,7 @@ import { MainScreenComponent } from './main-screen/main-screen.component';
 import { RegisterComponent } from './register/register.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { DeliverComponent } from './deliver/deliver.component';
+import { FormsModule } from '@angular/forms';
 
 import { QRCodeModule } from 'angularx-qrcode';
 
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     ),
     QRCodeModule,
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     
