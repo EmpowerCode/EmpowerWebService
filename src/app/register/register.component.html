@@ -1,7 +1,11 @@
-<p>
-  <input type="number" placeholder="Kg of plastic waste">
-  <input type="date" placeholder="Time / Date">
-  <input type="Text" placeholder="Location">
+<div class="top-bar">
+    <button routerLink="/" routerLinkActive="active" class="back-button">&larr;</button>
+</div>
 
-  <button class="bottom-button">Register</button>
+<p>
+  <input (input)="kgValue = $event.target.value" type="number" placeholder="Kg of plastic waste">
+  <input (input)="dateValue = $event.target.value" type="datetime-local" placeholder="Time / Date">
+  <input (input)="locationValue = $event.target.value" type="Text" placeholder="Location">
+
+  <button [disabled]="!(kgValue && dateValue && locationValue)" (click)="register()" class="bottom-button">Register</button>
 </p>

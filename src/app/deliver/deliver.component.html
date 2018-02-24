@@ -1,3 +1,14 @@
-<p>
-  deliver works!
-</p>
+<div class="top-bar">
+  <button routerLink="/" routerLinkActive="active" class="back-button">&larr;</button>
+</div>
+
+<div>
+    <div class="qrcode">
+        <qrcode [qrdata]="qrValue" [size]="256" [level]="'M'" [colordark]="'#0056FF'"></qrcode>
+    </div>
+    <p>
+      This qr-code should be scanned at the plastic waste disposal center and converted into Empower tokens.
+    </p>
+</div>
+
+<button routerLink="/" routerLinkActive="active" class="bottom-button">Done</button>

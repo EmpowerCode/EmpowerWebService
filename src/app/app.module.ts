@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { DeliverComponent } from './deliver/deliver.component';
 
+import { QRCodeModule } from 'angularx-qrcode';
+
 const appRoutes: Routes = [
   { path: 'home', component: MainScreenComponent },
   { path: 'register', component: RegisterComponent },
@@ -33,9 +35,12 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
+    QRCodeModule,
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
