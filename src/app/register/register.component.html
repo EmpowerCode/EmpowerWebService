@@ -9,5 +9,5 @@
   <input [(ngModel)]="addressValue" type="text" placeholder="Address (Scan QR Code)">
   <button (click)="scanQrCode()" class="scan-qr-button">Scan QR Code</button>
 
-  <button [disabled]="!(kgValue && dateValue && locationValue)" (click)="register()" class="bottom-button">Register</button>
+  <button [disabled]="!(kgValue && dateValue && locationValue && addressValue)" (click)="register()" class="bottom-button">Register</button>
 </p>

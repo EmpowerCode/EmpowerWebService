@@ -1,6 +1,6 @@
 <p>
     <img id="empower-logo" src="assets/img/empowerlogo.png">
-    <button routerLink="/register" routerLinkActive="active">Register</button>
+    <button *ngIf="isRegisteredCollector" routerLink="/register" routerLinkActive="active">Register</button>
     <button routerLink="/deliver" routerLinkActive="active">Deliver</button>
     <!--<a routerLink="/transfer" routerLinkActive="active">Transfer</a>-->
 </p>

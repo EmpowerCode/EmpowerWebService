@@ -1,4 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -12,11 +13,19 @@ export class RegisterComponent implements OnInit {
   locationValue;
   addressValue;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) {
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef,
+    private router: Router) {
     window.addEventListener("message", event => {
       if (event.data.requestName === "sendScanQrCode") {
         this.addressValue = event.data.data.scanQrCode;
         changeDetectorRef.detectChanges();
+      } else if (event.data.requestName === "registerWasteDone") {
+        if (event.data.data.success === true) {
+          this.router.navigate(['']);
+        } else {
+          alert('Something went wrong! Try Again.')
+        }
       }
     }, false);
   }
@@ -37,7 +46,8 @@ export class RegisterComponent implements OnInit {
       data: {
         kg: this.kgValue,
         date: this.dateValue,
-        location: this.locationValue
+        location: this.locationValue,
+        registerAddress: this.addressValue
       }
     }, "*");
   }
