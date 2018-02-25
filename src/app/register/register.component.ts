@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -10,18 +10,29 @@ export class RegisterComponent implements OnInit {
   kgValue;
   dateValue = this.now();
   locationValue;
+  addressValue;
 
-  constructor() {
+  constructor(private changeDetectorRef: ChangeDetectorRef) {
+    window.addEventListener("message", event => {
+      if (event.data.requestName === "sendScanQrCode") {
+        this.addressValue = event.data.data.scanQrCode;
+        changeDetectorRef.detectChanges();
+      }
+    }, false);
   }
 
   ngOnInit() {
+
+  }
+
+  scanQrCode() {
+    window.parent.postMessage({
+      requestName: "getScanQrCode"
+    }, "*");
   }
 
   register() {
-    console.log(this.kgValue);
-    console.log(this.dateValue);
-    console.log(this.locationValue);
-    window.postMessage({
+    window.parent.postMessage({
       requestName: "registerWaste",
       data: {
         kg: this.kgValue,

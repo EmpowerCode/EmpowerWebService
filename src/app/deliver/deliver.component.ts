@@ -7,7 +7,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 })
 export class DeliverComponent implements OnInit {
 
-  qrValue = "0x0"; // TODO: Show waiting screen while waiting for address to come back from Zafeplace
+  qrValue = ""; // TODO: Show waiting screen while waiting for address to come back from Zafeplace
 
   constructor(private changeDetectorRef: ChangeDetectorRef) {
     window.addEventListener("message", event => {
@@ -17,7 +17,7 @@ export class DeliverComponent implements OnInit {
       }
     }, false);
 
-    window.postMessage({
+    window.parent.postMessage({
       requestName: "getAddress"
     }, "*");
   }

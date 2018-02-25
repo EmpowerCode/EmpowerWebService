@@ -3,7 +3,7 @@
 </div>
 
 <div>
-    <div class="qrcode">
+    <div *ngIf="qrValue" class="qrcode">
         <qrcode [qrdata]="qrValue" [size]="256" [level]="'M'" [colordark]="'#0056FF'"></qrcode>
     </div>
     <p>
