@@ -13,6 +13,8 @@ export class RegisterComponent implements OnInit {
   locationValue;
   addressValue;
 
+  isRegistrering: boolean = false;
+
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
     private router: Router) {
@@ -21,6 +23,7 @@ export class RegisterComponent implements OnInit {
         this.addressValue = event.data.data.scanQrCode;
         changeDetectorRef.detectChanges();
       } else if (event.data.requestName === "registerWasteDone") {
+        this.isRegistrering = false;
         if (event.data.data.success === true) {
           this.router.navigate(['']);
         } else {
@@ -41,6 +44,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.isRegistrering = true;
     window.parent.postMessage({
       requestName: "registerWaste",
       data: {

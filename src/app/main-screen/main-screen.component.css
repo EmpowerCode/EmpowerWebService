@@ -13,7 +13,8 @@ button {
     width: 90%;
     height: 30px;
     color: white;
-    background-color: #0056FF;
+    background-color: #2FB7FF;
     border: none;
     margin-top: 15px;
+    letter-spacing: 1px;
 }

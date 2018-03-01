@@ -10,12 +10,14 @@ import { DeliverComponent } from './deliver/deliver.component';
 import { FormsModule } from '@angular/forms';
 
 import { QRCodeModule } from 'angularx-qrcode';
+import { ArchiveComponent } from './archive/archive.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: MainScreenComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'transfer', component: TransferComponent },
   { path: 'deliver', component: DeliverComponent },
+  { path: 'archive', component: ArchiveComponent },
   { path: '',
     redirectTo: '/home',
     pathMatch: 'full'
@@ -29,7 +31,8 @@ const appRoutes: Routes = [
     MainScreenComponent,
     RegisterComponent,
     TransferComponent,
-    DeliverComponent
+    DeliverComponent,
+    ArchiveComponent
   ],
   imports: [
     RouterModule.forRoot(
